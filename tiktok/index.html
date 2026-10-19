@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>TikTok bağlantısı</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <h1>TikTok <span>bağlantısı</span></h1>
+  <div class="card">
+    <p id="msg">Bu sayfa, Schrodinger Kedisi Otomasyon'un TikTok izin dönüş adresidir.</p>
+  </div>
+  <nav><a href="../index.html">Ana sayfa</a><a href="../privacy.html">Gizlilik Politikası</a></nav>
+</main>
+<script>
+  // the authorization code stays in the address bar for the local tool; nothing is sent anywhere
+  var q = new URLSearchParams(location.search);
+  if (q.get("code")) document.getElementById("msg").textContent = "İzin alındı. Bu sekmeyi açık bırak; otomasyon adresi okuyacak.";
+  else if (q.get("error")) document.getElementById("msg").textContent = "İzin verilmedi: " + (q.get("error_description") || q.get("error"));
+</script>
+</body>
+</html>
